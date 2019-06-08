@@ -15,7 +15,10 @@ test -d ~/Pictures || mkdir ~/Pictures
 test -f ~/Pictures/pics.tgz || wget -q -O ~/Pictures/pics.zip http://zonzorp.net/pics.tgz
 
 # unpack the downloaded zipfile if it is there, then delete the local copy of the zipfile
-test -f ~/Pictures/pics.tgz && unzip -d ~/Pictures -o -q ~/Pictures/pics.zip && rm ~/Pictures/pics.tgz
+
+# My Comments
+# tar x : extract the archive files, f : regular files, v : show the process of archieve file, z : filter archive through gzip,
+test -f ~/Pictures/pics.tgz && tar -xvzf ~/Pictures/pics.tgz && rm ~/Pictures/pics.tgz
 
 
 # Make a report on what we have in the Pictures directory
