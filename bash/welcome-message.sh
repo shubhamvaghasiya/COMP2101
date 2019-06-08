@@ -12,11 +12,7 @@
 ###############
 # Variables   #
 ###############
-name="Enter your name"
-read -p "$name" myname
-
-title="Enter saluation"
-read -p "$title" Title
+name="$USER"
 hostname=$(hostname)
 
 
@@ -24,7 +20,7 @@ hostname=$(hostname)
 # Main        #
 ###############
 cat <<EOF
-Welcome to planet $hostname, "$Title $myname!"
+Welcome to planet $hostname, "$name!"
 EOF
 
 #Date
