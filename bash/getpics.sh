@@ -12,17 +12,17 @@
 test -d ~/Pictures || mkdir ~/Pictures
 
 # download a zipfile of pictures to our Pictures directory if it isn't already there - assumes you are online
-test -f ~/Pictures/pics.tgz || wget -q -O ~/Pictures/pics.zip http://zonzorp.net/pics.tgz
+test -f ~/Pictures/pics.zip || wget -q -O ~/Pictures/pics.zip http://zonzorp.net/pics.zip
 
+test -f ~/Pictures/pics.zip && unzip -d ~/Pictures -o -q ~/Pictures/pics.zip && rm ~/Pictures/pics.zip
+
+test -f ~/Pictures/pics.tgz || wget -q -O ~/Pictures/pics.tgz http://zonzorp.net/pics.tgz
 # unpack the downloaded zipfile if it is there, then delete the local copy of the zipfile
 
-# My Comments
-# tar x : extract the archive files, f : regular files, v : show the process of archieve file, z : filter archive through gzip,
-test -f ~/Pictures/pics.tgz && tar -xvzf ~/Pictures/pics.tgz && rm ~/Pictures/pics.tgz
-
-
+test -f ~/Pictures/pics.tgz && tar xvzf ~/Pictures/pics.tgz -C ~/Pictures && rm ~/Pictures/pics.tgz
 # Make a report on what we have in the Pictures directory
 test -d ~/Pictures && cat <<EOF
 Found $(find ~/Pictures -type f|wc -l) files in the Pictures directory.
 The Pictures directory uses $(du -sh ~/Pictures|awk '{print $1}') space on the disk.
+333333
 EOF
